@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta property="og:title" content="UROOM" />
+  <meta property="og:description" content="Multiusuario" />
+  <meta property="og:image" content="uroom01.jpg" />
+  <script  src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <style>
+    html,
+    body {
+      margin: 0, auto;
+      padding-top: 10px;
+      text-align: center;
+      background-color: #111;
+      display: inline-block;
+      font-family:arial;
+    }
+    #entra {
+      cursor: pointer;
+    }
+  </style>
+  <script>
+  function entrar(){
+        var numero=$('#codei').val()
+        var dire='https://josepssv.github.io/uroom/n/'+numero+'/'
+         var request = new XMLHttpRequest();  
+        request.open('GET', dire, true);
+        request.onreadystatechange = function(){
+             if (request.readyState === 4){
+                if (request.status === 404) {  
+                    alert("Oh no, no existe esa habitación!");
+                } else{
+                    location.href=dire
+                }
+            }
+        };
+    request.send();
+  }
+ $(document).ready(function() {
+    $('#codei').keypress(function (e) {
+     var key = e.which;
+     if(key == 13)  // the enter key code
+      {
+        entrar()
+      }
+   });   
+   $('#entra').on("click", function(e) {
+          entrar()
+    });
+  })
+</script> 
+</head>
+<body>
+  <div id="resumen" style="border-radius:12px;text-align:center;width:774px;height:600px;background-color:#444;padding:23px;">
+    <h1>HABITACIÓN NÚMERO</h1>
+    <p><input maxlength="5" name="codei" id="codei" type="text" style="border-radius:22px;font-size:80px;width:500px; font-weight:800;text-align:center;border-style:solid;border-color:#00a;background-color: #ddf;color:#000;border-width:20px;padding:20px;"/></p>
+    <button id="entra" style="width:300px; border-radius:12px;font-size:40px; font-weight:800; text-align:center;border-style:solid;border-color:#555;background-color: #ddd;color:#000;border-width:12px;padding:20px;">ENTRAR</button>
+</div>
+</body>
+</html>
