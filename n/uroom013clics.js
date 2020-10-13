@@ -152,11 +152,18 @@ var tag = document.createElement('script');
 var firstScriptTag = document.getElementsByTagName('script')[0];
 tag.src = "https://www.youtube.com/iframe_api";
 firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-
-
-
 ////////////////
+/////////////
+var rectangles = [];
+var bouncingRectX = 150;
+var bouncingRectY = 150;
+var bouncingRectWidth = 20;
+var bouncingRectHeight = 4;
+var bouncingRectSpeedX = 2;
+var bouncingRectSpeedY = 1;
+
+var playPause=0
+var incr=0
 
 
 
@@ -293,8 +300,14 @@ function setup() {
    }
    */
   muestraHoras(totalhoras);
-
+  
+  rectangles[0]=new Rectangle(0, 0, width, 1);
+  rectangles[1]=new Rectangle(0, width-1, width, 1);
+  rectangles[2]=new Rectangle(0, 0, 1, 800);
+  rectangles[3]=new Rectangle(width-1, 0, 1, 800);
+  
   for (var a = 0; a < partiNames.length; a++) {
+    rectangles.push(new Rectangle(partiNames[a].x, partiNames[a].y, 20, 1));
     //x = a * 80 + 12 + (22 * a)
     //y = 135
     //partiNames[a].x = x
@@ -357,6 +370,10 @@ function setup() {
    
   }
   */
+ host.ball = host.ball || {
+    x:0,
+    y:0
+ }
   //console.log("partyIsHost()", partyIsHost());
   if (partyIsHost()) {
     // if partyIsHost is true, this client is the first one in the room
@@ -804,10 +821,47 @@ function dibujaParticipantes() {
          //console.log(m.id)
          if(typeof m.id !== "undefined"  &&  m.id != null  &&  m.id>-1){
               text(partiNames[m.id].name, m.x, m.y)
+              rectangles[m.id+4].x=m.x
+              rectangles[m.id+4].y=m.y
+              //rect(m.x, m.y, rectangles[m.id+4].rectWidth, rectangles[m.id+4].rectHeight);
          }
      }
   }
- 
+  
+  if(shared.onoffProyector==1 && pizarradiv.html()=='' && partiNames[me.id].rol==2){
+      
+   for (var i = 0; i < rectangles.length; i++) {
+    
+        //check collision for this obstacle
+      var rectangle= rectangles[i];
+    
+        //check X movment bounce
+        if (bouncingRectX + bouncingRectWidth + bouncingRectSpeedX > rectangle.x && 
+          bouncingRectX + bouncingRectSpeedX < rectangle.x + rectangle.rectWidth && 
+          bouncingRectY + bouncingRectHeight > rectangle.y && 
+          bouncingRectY < rectangle.y + rectangle.rectHeight) {
+    
+          bouncingRectSpeedX *= -1;
+        }
+    
+        //check Y movement bounce
+        if (bouncingRectX + bouncingRectWidth> rectangle.x && 
+          bouncingRectX< rectangle.x + rectangle.rectWidth && 
+          bouncingRectY + bouncingRectHeight + bouncingRectSpeedY > rectangle.y && 
+          bouncingRectY + bouncingRectSpeedY < rectangle.y + rectangle.rectHeight) {
+    
+          bouncingRectSpeedY *= -1;
+        }
+     }
+     
+     bouncingRectX += bouncingRectSpeedX*incr;
+      bouncingRectY += bouncingRectSpeedY*incr;
+      host.ball.x=bouncingRectX
+      host.ball.y=bouncingRectY
+     
+  }
+   fill(0, 255, 0);
+   rect(host.ball.x, host.ball.y, bouncingRectWidth, bouncingRectHeight);
 }
 
 function dibujaSitios() {
@@ -1224,6 +1278,7 @@ function mostrarProyector() {
   if (shared.onoffProyector) {
     shared.onoffProyector *= -1
     proyectorPrev = shared.onoffProyector
+    if(shared.onoffProyector==1){incr=1}else{incr=0}
   }
 
   //pizarradiv.html(shared.onoffProyector)
@@ -2250,4 +2305,12 @@ function pegadaImagen() {
       shared.log=pastedData
   }
  //}
+}
+class Rectangle{
+   constructor(x,  y, rectWidth,  rectHeight) {
+    this.x = x;
+    this.y = y;
+    this.rectWidth = rectWidth;
+    this.rectHeight = rectHeight;
+   }
 }
