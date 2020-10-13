@@ -1,2 +1,2 @@
 # uroom
-Virtual room
+Virtual rooms
