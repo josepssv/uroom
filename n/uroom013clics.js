@@ -173,18 +173,18 @@ function preload() {
   host = partyLoadShared("room" + room);
   //host = partyLoadShared("host");
   //fondo= loadImage("../images/iso105lineal.png"); 
-  nimages[0] = loadImage(foto[0]);
-  var cont = 1;
+  //nimages[0] = loadImage(foto[0]);
+  //var cont = 1;
   //for (var a = 1; a < tarjeta.length; a++) {
-  for (var a = 1; a < foto.length; a++) {
+  //for (var a = 1; a < foto.length; a++) {
     //tarjeta[a][b].src = loadImage(tarjeta[a][b].img);
     //tarjeta[a][b].img=foto[conti];
     //tarjeta[a][b].src = loadImage(foto[conti]);
-    nimages[cont] = loadImage(foto[cont]);
+    //-->nimages[cont] = loadImage(foto[cont]);
     //tarjeta[a][b].conti=conti;
-    cont++;
+    //cont++;
     //if(cont>=foto.length){cont=1}
-  }
+  //}
   //this.audiocontext = getAudioContext();
 }
 var cnv;
@@ -1071,6 +1071,7 @@ function dibujaTarjetas() {
             //-->image(nimages[tarjeta[mias[c]].conti[0]],partiNames[xme].x +6, ty +28,45,40) 
             //--->rect(partiNames[m.id].x + 45*c+ 1*c+5-grueso, 15 + 24-grueso, 45+grueso*2,40+grueso*2)
             //----->rect(partiNames[m.id].x + 45 * c + 1 * c + 5 - grueso, partiNames[m.id].y + 24 - grueso, 45 + grueso * 2, 40 + grueso * 2)
+            /*
             if (tarjeta[mias[c]].name != '') {
               if (mias[c] <= 0) {
                 image(nimages[0], partiNames[m.id].x + 45 * c + 1 * c + 5, partiNames[m.id].y + 24, 45, 40)
@@ -1078,6 +1079,7 @@ function dibujaTarjetas() {
                 image(nimages[tarjeta[mias[c]].conti[0]], partiNames[m.id].x + 45 * c + 1 * c + 5, partiNames[m.id].y + 24, 45, 40)
               }
             }
+            */
             strokeWeight(0)
             stroke(0)
             fill(0)
@@ -1090,12 +1092,13 @@ function dibujaTarjetas() {
         }
       }
     } else {
-      if (typeof m.id !== "undefined" && partiNames[m.id].name != '') {
+     /* if (typeof m.id !== "undefined" && partiNames[m.id].name != '') {
         var j = 0
         image(nimages[0], partiNames[m.id].x + 45 * j + 1 * j + 5, 15 + 24, 45, 40)
         j = 1
         image(nimages[0], partiNames[m.id].x + 45 * j + 1 * j + 5, 15 + 24, 45, 40)
       }
+      */
     }
 
   }
@@ -1116,7 +1119,7 @@ function dibujaTarjetas() {
     if (tarjeta[a].name != '') {
       rect(tarjeta[a].x, tarjeta[a].y - 10, tarjeta[a].w + 10, tarjeta[a].h + 40)
       //image(tarjeta[a][b].src,tarjeta[a][b].x, tarjeta[a][b].y + 28, dimTarjeta.w, dimTarjeta.h)
-      image(nimages[tarjeta[a].conti[0]], tarjeta[a].x + 6, tarjeta[a].y + 28, 70, 70)
+      //-->image(nimages[tarjeta[a].conti[0]], tarjeta[a].x + 6, tarjeta[a].y + 28, 70, 70)
       //image(nimages[tarjeta[a].conti[1]],tarjeta[a].x+52, tarjeta[a].y + 28, 45, 40)
 
       fill(0)
