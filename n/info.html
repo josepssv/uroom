@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<head>
+<html lang="en">
+<meta charset="utf-8" />
+<script>
+    function datodiv(c){
+        
+        parent.document.getElementById('pizarrata').value=c
+    }
+</script>
+</head>
+<body>
+<table cellpadding="12px" width="90%"><tr><td valign="top" style="background-color:#ddd;text-align:left;">
+<pre><b>Para realizar votación anónima</b>, escribir 3 líneas 
+Primera línea: votar
+Segunda línea: título de la votación
+Tercera línea: opciones a votar (una sola palabra) separadas de espacios
+EJEMPLO:</pre><p style="background-color:#fff;padding:8px 6px 8px 4px; width:300px;" onclick="datodiv(this.textContent)">
+    votar<br>
+    delegado<br>
+    Antonio Bibiana Carlos<br>
+    </p>
+<pre>
+Cada voto realizado se ilumina la pantalla del votante
+Se finaliza la votación y se muestran resultados con el botón RESUMEN
+    
+<b>Para realizar votación anónima donde todos 
+los asistentes sean elegibles</b>, escribir 3 líneas 
+Primera línea: votar
+Segunda línea: título de la votación
+Tercera línea: todos
+EJEMPLO:</pre><p style="background-color:#fff;padding:8px 6px 8px 4px; width:300px;" onclick="datodiv(this.textContent)">
+    votar<br>
+    delegado<br>
+    todos<br>
+    </p>
+    </td>
+    <td valign="top" style="background-color:#eee;text-align:left;">
+<pre><b>Para realizar votación con respuesta correcta</b>, 4 líneas 
+Primera línea: votar
+Segunda línea: título de la votación
+Tercera línea: opciones a votar (una sola palabra) separadas de espacios
+Cuarta línea: solución o soluciones, en número, separadas de espacios
+EJEMPLO:</pre><p style="background-color:#fff;padding:8px 6px 8px 4px; width:300px;" onclick="datodiv(this.textContent)">
+    votar<br>
+    Animal mamífero<br>
+    Pez Rana Vaca<br>
+    3<br>
+    </p>    
+     <pre>
+Cada voto realizado se ilumina la pantalla del votante
+Se finaliza la votación y se muestran resultados 
+dando premios a los acertantes con el botón RESUMEN
+    </pre>
+    </td>
+       <td valign="top" style="background-color:#dee;text-align:left;">
+<pre><b>Para realizar una pregunta</b>, 3 líneas 
+Primera línea: pregunta
+Segunda línea: título de la pregunta
+Tercera línea: opciones de respuesta correcta (una sola palabra) separadas de espacios
+EJEMPLO:</pre><p style="background-color:#fff;padding:8px 6px 8px 4px; width:300px;" onclick="datodiv(this.textContent)">
+    pregunta<br>
+    ¿Quién descubrió América?<br>
+    Colón vikingos<br>
+    </p>    
+     <pre>
+Cada voto realizado se ilumina la pantalla del votante
+Se finaliza la votación y se muestran resultados 
+dando premios a los acertantes con el botón RESUMEN
+Si la tercera línea queda vacía, no se dan premios
+    </pre>
+    </td>
+    </table>
+</body>
+</html>
