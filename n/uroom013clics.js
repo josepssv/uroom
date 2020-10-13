@@ -1278,7 +1278,13 @@ function mostrarProyector() {
   if (shared.onoffProyector) {
     shared.onoffProyector *= -1
     proyectorPrev = shared.onoffProyector
-    if(shared.onoffProyector==1){incr=1}else{incr=0}
+    if(shared.onoffProyector==1){
+        incr=1
+    }else{
+        incr=0
+    }
+     host.ball.x=12;bouncingRectX=12
+      host.ball.y=4;bouncingRectY=4
   }
 
   //pizarradiv.html(shared.onoffProyector)
