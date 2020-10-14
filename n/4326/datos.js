@@ -1,4 +1,6 @@
-[
+let textoInicial='';
+let G='H M M';
+let partiNames=[
     {
         "name": "MODERADOR",
         "horas": 0,
