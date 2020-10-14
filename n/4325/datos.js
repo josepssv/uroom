@@ -219,7 +219,7 @@ let partiNames=[
   "rol": "0"
  },
  {
-  "name": "ESTHER",
+  "name": "PEDRO",
   "horas": 0,
   "x": 788,
   "y": 170,
@@ -250,7 +250,7 @@ let partiNames=[
   "rol": "0"
  },
  {
-  "name": "GLORIA",
+  "name": "ESTHER",
   "horas": 0,
   "x": 890,
   "y": 170,
@@ -281,7 +281,7 @@ let partiNames=[
   "rol": "0"
  },
  {
-  "name": "SUSANA",
+  "name": "PACO",
   "horas": 0,
   "x": 20,
   "y": 268,
@@ -312,7 +312,7 @@ let partiNames=[
   "rol": "0"
  },
  {
-  "name": "SOFÍA",
+  "name": "GLORIA",
   "horas": 0,
   "x": 122,
   "y": 268,
@@ -343,7 +343,7 @@ let partiNames=[
   "rol": "0"
  },
  {
-  "name": "ELENA",
+  "name": "SUSANA",
   "horas": 0,
   "x": 276,
   "y": 268,
@@ -374,7 +374,7 @@ let partiNames=[
   "rol": "0"
  },
  {
-  "name": "VICTOR.J",
+  "name": "SOFÍA",
   "horas": 0,
   "x": 378,
   "y": 268,
@@ -405,7 +405,7 @@ let partiNames=[
   "rol": "0"
  },
  {
-  "name": "VICTORIA",
+  "name": "ELENA",
   "horas": 0,
   "x": 532,
   "y": 268,
@@ -436,7 +436,7 @@ let partiNames=[
   "rol": "0"
  },
  {
-  "name": "IRENE",
+  "name": "VICTOR.J",
   "horas": 0,
   "x": 634,
   "y": 268,
@@ -467,7 +467,7 @@ let partiNames=[
   "rol": "0"
  },
  {
-  "name": "EDUARDO",
+  "name": "VICTORIA",
   "horas": 0,
   "x": 788,
   "y": 268,
@@ -485,6 +485,68 @@ let partiNames=[
    {
     "x": 839,
     "y": 308,
+    "w": 45,
+    "h": 40,
+    "a": 0,
+    "id": 1
+   }
+  ],
+  "conti": [
+   0,
+   0
+  ],
+  "rol": "0"
+ },
+ {
+  "name": "IRENE",
+  "horas": 0,
+  "x": 890,
+  "y": 268,
+  "w": 100,
+  "h": 70,
+  "elige": [
+   {
+    "x": 895,
+    "y": 308,
+    "w": 45,
+    "h": 40,
+    "a": 0,
+    "id": 0
+   },
+   {
+    "x": 941,
+    "y": 308,
+    "w": 45,
+    "h": 40,
+    "a": 0,
+    "id": 1
+   }
+  ],
+  "conti": [
+   0,
+   0
+  ],
+  "rol": "0"
+ },
+ {
+  "name": "EDUARDO",
+  "horas": 0,
+  "x": 20,
+  "y": 366,
+  "w": 100,
+  "h": 70,
+  "elige": [
+   {
+    "x": 25,
+    "y": 406,
+    "w": 45,
+    "h": 40,
+    "a": 0,
+    "id": 0
+   },
+   {
+    "x": 71,
+    "y": 406,
     "w": 45,
     "h": 40,
     "a": 0,
