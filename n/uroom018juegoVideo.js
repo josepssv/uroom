@@ -311,23 +311,43 @@ let tcopa = "\uD83C\uDFC6";
 let tmicro = "\uD83C\uDFA4";
 let twcopa = 0;
 
-//////////////////////
+////////////////////////
 var player;
 var tag = document.createElement('script');
 var firstScriptTag = document.getElementsByTagName('script')[0];
 tag.src = "https://www.youtube.com/iframe_api";
 firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 ////////////////
-  partyConnect(
+/////////////
+var rectangles = [];
+var bouncingRectX = 150;
+var bouncingRectY = 150;
+var bouncingRectWidth = 20;
+var bouncingRectHeight = 4;
+var bouncingRectSpeedX = 2;
+var bouncingRectSpeedY = 1;
+
+var playPause=0;
+var incr=0;
+var centerg={x:0,y:0};
+
+
+
+function preload() {
+  //partyConnect("wss://deepstream-server-1.herokuapp.com", "cursors", "main1");
+  //partyConnect("wss://deepstream-server-1.herokuapp.com", "room" + room, "main" + room);
+  //-->partyConnect("wss://uroom.herokuapp.com/", "room" + room, "main" + room);
+   partyConnect(
     "wss://demoserver.p5party.org",
    "room" + room, "main" + room
   );
-  shared = partyLoadShared("shared");
+   shared = partyLoadShared("shared");
 
   me = partyLoadMyShared();
   participants = partyLoadParticipantShareds();
   host = partyLoadShared("room" + room);
 }
+
 var cnv;
 
 function centerCanvas() {
