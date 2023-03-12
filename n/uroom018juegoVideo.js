@@ -318,6 +318,7 @@ var firstScriptTag = document.getElementsByTagName('script')[0];
 tag.src = "https://www.youtube.com/iframe_api";
 firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 ////////////////
+  partyConnect(
     "wss://demoserver.p5party.org",
    "room" + room, "main" + room
   );
