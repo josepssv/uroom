@@ -336,7 +336,11 @@ var centerg={x:0,y:0};
 function preload() {
   //partyConnect("wss://deepstream-server-1.herokuapp.com", "cursors", "main1");
   //partyConnect("wss://deepstream-server-1.herokuapp.com", "room" + room, "main" + room);
-  partyConnect("wss://uroom.herokuapp.com/", "room" + room, "main" + room);
+  //partyConnect("wss://uroom.herokuapp.com/", "room" + room, "main" + room);
+   partyConnect(
+    "wss://demoserver.p5party.org",
+   "room" + room, "main" + room
+  );
   shared = partyLoadShared("shared");
 
   me = partyLoadMyShared();
