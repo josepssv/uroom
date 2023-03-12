@@ -318,26 +318,6 @@ var firstScriptTag = document.getElementsByTagName('script')[0];
 tag.src = "https://www.youtube.com/iframe_api";
 firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 ////////////////
-/////////////
-var rectangles = [];
-var bouncingRectX = 150;
-var bouncingRectY = 150;
-var bouncingRectWidth = 20;
-var bouncingRectHeight = 4;
-var bouncingRectSpeedX = 2;
-var bouncingRectSpeedY = 1;
-
-var playPause=0;
-var incr=0;
-var centerg={x:0,y:0};
-
-
-
-function preload() {
-  //partyConnect("wss://deepstream-server-1.herokuapp.com", "cursors", "main1");
-  //partyConnect("wss://deepstream-server-1.herokuapp.com", "room" + room, "main" + room);
-  //partyConnect("wss://uroom.herokuapp.com/", "room" + room, "main" + room);
-   partyConnect(
     "wss://demoserver.p5party.org",
    "room" + room, "main" + room
   );
@@ -386,7 +366,7 @@ function centerCanvas() {
 
 
 function windowResized() {
-  centerCanvas();
+  //-->centerCanvas();
 }
 
 function mepide() {
@@ -658,7 +638,7 @@ function setup() {
 
   pizarradiv.position(cnv.x + pizarra.x, cnv.y + pizarra.y);
   pizarradiv.size(pizarra.w, pizarra.h);
-  centerCanvas();
+  //-->centerCanvas();
 
 
  // modalok = select('#modalok')
