@@ -25,7 +25,7 @@ window.onbeforeunload = function() {
 /*
 Z-INDEX
 button3 PROYECTOR al maximo siempre  si es rol 2   9999999
-buttGuardaApuntes al maximo si no es rol 2 y no est�� en proyector  9999999
+buttGuardaApuntes al maximo si no es rol 2 y no est¨¢ en proyector  9999999
 pizarradiv al minimo se esta protector y modo video, imagen,
 #nuestraimagen por encima de pizarradiv si el modo es imagen  1
 cnv por encima de video 8000
@@ -339,7 +339,11 @@ var centerg={x:0,y:0};
 function preload() {
   //partyConnect("wss://deepstream-server-1.herokuapp.com", "cursors", "main1");
   //partyConnect("wss://deepstream-server-1.herokuapp.com", "room" + room, "main" + room);
-  partyConnect("wss://uroom.herokuapp.com/", "room" + room, "main" + room);
+  //-->partyConnect("wss://uroom.herokuapp.com/", "room" + room, "main" + room);
+   partyConnect(
+    "wss://demoserver.p5party.org",
+   "room" + room, "main" + room
+  );
   shared = partyLoadShared("shared");
 
   me = partyLoadMyShared();
@@ -2272,9 +2276,9 @@ function XXonPlayerReady(event) {
   /*
           -1 (unstarted, sin empezar)
            0 (ended, finalizado)
-          1 (playing, en reproducción)
+          1 (playing, en reproducciÃ³n)
           2 (paused, en pausa)
-          3 (almacenando en búfer)
+          3 (almacenando en bÃºfer)
           5 (video cued, video en cola)
           */
   //share.modoestado=1;//-->event.data
