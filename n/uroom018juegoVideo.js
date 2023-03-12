@@ -39,7 +39,7 @@ resumenApizarra
 function escena(n){
     var nivel=[0,50,100,150,200,250,300,350,400,450,500];
     if(n === 0){
-        selectid.hide();
+        //selectid.hide();
         //modaldiv.hide();
         button.hide();
         button1.hide(); 
