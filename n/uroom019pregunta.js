@@ -389,7 +389,7 @@ function centerCanvas() {
 
 
 function windowResized() {
-  centerCanvas();
+  //centerCanvas();
 }
 
 function mepide() {
