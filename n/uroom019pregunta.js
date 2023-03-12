@@ -661,7 +661,7 @@ function setup() {
 
   pizarradiv.position(cnv.x + pizarra.x, cnv.y + pizarra.y);
   pizarradiv.size(pizarra.w, pizarra.h);
-  centerCanvas();
+  //-->centerCanvas();
 
 
  // modalok = select('#modalok')
