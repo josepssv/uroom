@@ -29,7 +29,7 @@
     </style>
     <script>
 var G='Nombre';
-var iniciales = 'MODERADOR,1,2,3,4,5'.split(',');
+var iniciales = '0,1,2,3,4,5'.split(',');
 var agrupadosPor=2;
 var nAlumnosCadaFila=8;
 
@@ -65,7 +65,7 @@ for (i = 1; i < list.length; i++) {
 }
 return max
 }
-    function creaListas() {
+function creaListas() {
         
         var space = [],
             u, cod = ''
@@ -101,37 +101,41 @@ return max
         var ar1 = ''
         var ar2 = ''
         var nombre = ''
-        var nombres = ''
+        var nombres = '' 
+        var profeMesaY=42
         //var espacio = { xini: solo.length * 100 + 100, yini: 40, w: 90, h: 100, interx: 28, intery: 28 }
-        var h=70
-        var yini=100
-        var profeMesaY=40
-        var espacio = { xini: 20, yini: yini+h, w: 100, h: h, interx: 28, intery: 28 }
+        var espacio = { xini: 20, yini: profeMesaY, w: 150, h: 18, interx: 2, intery: 2 }
+        var h=espacio.h
+        var yini=espacio.yini
+        var xini=espacio.xini
         var finy=0;
+        var yi = espacio.yini
+        var xi = espacio.xini
         for (var i = 0; i < iniciales.length; i++) {
             var noam = iniciales[i] + ''
 
             var rr1 = parseInt(Math.random() * 12)
             var rr2 = parseInt(Math.random() * 12)
-            var xi=(conttx * espacio.w + espacio.xini+ conttx*espacio.interx)
-            if(i%2==0 && agrupadosPor==2){  xi=(conttx * espacio.w + espacio.xini+ conttx*espacio.interx -espacio.interx+2)  }
-            var yi=contty*espacio.h+espacio.yini+ contty*espacio.intery
+            //var xi=(conttx * espacio.w + espacio.xini+ conttx*espacio.interx)
+            
+            //if(i%2==0 && agrupadosPor==2){  xi=(conttx * espacio.w + espacio.xini+ conttx*espacio.interx -espacio.interx+2)  }
+            
             var ei=[{
-                x: xi + 45*0+ 1*0+5,
-                y: yi+40,
-                w: 45,
-                h: 40,
+                x: xini,
+                y: yi+2,
+                w: espacio.w,
+                h: espacio.h,
                 a: 0,
                 id:0
             },{
-                x: xi + 45*1+ 1*1+5,
-                y: yi+40,
-                w: 45,
-                h: 40,
+                x: xini,
+                y: yi+2,
+                w: espacio.w,
+                h: espacio.h,
                 a: 0,
                 id:1
             } ]
-            modeloParti = { name: noam, horas: 0, x: xi, y: yi, w:espacio.w,h:espacio.h, elige: ei, conti: [0, 0], rol:0}
+            modeloParti = { name: noam, horas: 0, x: xi, y: yi, w:espacio.w, h:espacio.h, elige: ei, conti: [0, 0], rol:0}
             
 
             if (solo.indexOf(i) != -1) {
@@ -140,37 +144,41 @@ return max
                      modeloParti.rol=1;
                   }
                 if (profesores.indexOf(i)!= -1) {
-                             var ep=[{
+                        var ep=[{
                         x: espacio.xini + 5,
-                        y: profeMesaY+25,
-                        w: 45,
-                        h: 55,
+                        y: profeMesaY+0,
+                        w: espacio.w,
+                        h: 18,
                         a: 0,
                         id:0
                     },{
-                        x: espacio.xini + 55,
-                        y: profeMesaY+25,
-                        w: 45,
-                        h: 55,
+                        x: espacio.xini + 5,
+                        y: profeMesaY+0,
+                        w: espacio.w,
+                        h: 18,
                         a: 0,
                         id:1
                     } ]
-                      var modeloP = { name: noam, horas: 0, x: xi, y: yi, w:espacio.w,h:espacio.h, elige: ep, conti: [0, 0], rol: 0}
+                     conttx++
+                     contty++  
+                    yi = espacio.yini + contty * espacio.h + contty * espacio.intery
+                     var modeloP = { name: noam, horas: 0, x: xi, y: yi, w:espacio.w,h:espacio.h, elige: ep, conti: [0, 0], rol: 0}
 
                      modeloP.rol=2;
                      modeloP.y=profeMesaY
                      modeloP.x=espacio.xini
-                     modeloP.w=espacio.w+20
-                     modeloP.h=espacio.h+5
+                     //modeloP.w=espacio.w+20
+                     //modeloP.h=espacio.h+5
                      partiNames.push(modeloP)
+                    
+              
                      continue;
                 }
                 partiNames.push(modeloParti)
                 conttx++
-                if (conttx % 8 ==0) {
-                    conttx = 0;
-                    contty++
-                }
+                contty++  
+                yi = espacio.yini + contty * espacio.h + contty * espacio.intery
+                //-->if (conttx % 8 ==0) {  conttx = 0;   contty++   }
             }
         }
          var maxp =maxil(partiNames)
@@ -181,7 +189,7 @@ return max
          var yt = -1000
          var xt = -1000
          var noam=''
-         var espaciot = { xini: 20, yini: yini, w: 90, h: 100, interx: 28, intery: 28 }
+         var espaciot = { xini: 20, yini: yini, w: 90, h: 18, interx: 2, intery: 2 }
         
        
         //var pn = 'let partiNames=' + JSON.stringify(partiNames, null, " ")
@@ -208,25 +216,26 @@ cad+="let partiNames="
         //$('#lista').on("click", function(e) {});
         //creaListas()
     })
+
     </script>
 </head>
 
 <body>
      <div id="cabecera" style="border-radius:13px;text-align:center;width:774px;height:600px;background-color:#999;padding:23px;">
-        <h2>HABITACIÓN 2D CON FORMA DE AULA</h2>
+        <h2>HABITACIÓN 2D CON FORMA DE LISTA</h2>
         <div style="font-size:18px;margin-top:50px;">
-          Nombre del aula </div> <input name="nombreAula" id="nombreAula" type="text" style="border-radius:12px;font-size:18px;width:200px; font-weight:800;text-align:center;border-style:solid;border-color:#00a;background-color: #ddf;color:#000;border-width:4px;padding:12px;" value="AULA" />
+          Nombre del aula </div> <input name="nombreAula" id="nombreAula" type="text" style="border-radius:12px;font-size:18px;width:200px; font-weight:800;text-align:center;border-style:solid;border-color:#00a;background-color: #ddf;color:#000;border-width:4px;padding:12px;" value="LISTA" />
         
         <div style="font-size:18px;margin-top:30px;">
          Pon los participantes uno a continuación del otro separados por comas. 
          <br>El primero debe ser el moderador o profesor
         </div>
-        <p><input name="listanombres" id="listanombres" type="text" style="border-radius:12px;font-size:15px;width:500px; font-weight:800;text-align:center;border-style:solid;border-color:#00a;background-color: #ddf;color:#000;border-width:4px;padding:12px;" value="MODERADOR,A,B,C,D,E" /></p>
+        <p><input name="listanombres" id="listanombres" type="text" style="border-radius:12px;font-size:15px;width:500px; font-weight:800;text-align:center;border-style:solid;border-color:#00a;background-color: #ddf;color:#000;border-width:4px;padding:12px;" value="A,B,C,D,E,F,G" /></p>
         <div style="margin-top:80px;">
             <div style="font-size:18px;">
         El resultado en formato JSON debe sustituirse por el fichero datos.js
              </div>
-            <button id="entra" style="width:200px; border-radius:12px;font-size:15px; font-weight:800; text-align:center;border-style:solid;border-color:#555;background-color:#eee;color:#000;border-width:4px;padding:20px;" onclick="creaListas()">CREAR AULA</button>
+            <button id="entra" style="width:200px; border-radius:12px;font-size:15px; font-weight:800; text-align:center;border-style:solid;border-color:#555;background-color:#eee;color:#000;border-width:4px;padding:20px;" onclick="creaListas()">CREAR LISTA</button>
         </div>
 
         <div style="font-size:12px;margin-top:80px;width:90%;text-align:left;">
